@@ -1,4 +1,5 @@
 import 'package:budget_app/data/data.dart';
+import 'package:budget_app/widgets/bar_chart.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -53,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                     borderRadius: BorderRadius.circular(10.0)
                   ),
-                  child: BarChart(weeklySpending),
+                  child: BarChart(expenses: weeklySpending),
               );
             }, childCount: 1
             ),
