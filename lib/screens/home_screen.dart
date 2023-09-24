@@ -14,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   _buildCategory(Category category, double totalAmountSpend) {
     return Container(
+      padding: const EdgeInsets.all(20.0),
       margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
       height: 100.0,
       width: double.infinity,
@@ -42,13 +43,46 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Text(
-                '\$${(category.maxAmount - totalAmountSpend).toStringAsFixed(2)} / \$${category.maxAmount.toStringAsFixed (2)}',
+                '\$${(category.maxAmount - totalAmountSpend).toStringAsFixed(2)} / \$${category.maxAmount.toStringAsFixed(2)}',
                 style: const TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.w600,
                 ),
               ),
             ],
+          ),
+          const SizedBox(height: 10.0),
+          LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints){
+
+              final double maxBarWidth = constraints.maxWidth;
+              final double percent = (category.maxAmount - totalAmountSpend) / category.maxAmount;
+              double barWidth = percent * maxBarWidth;
+
+              if(barWidth<0){
+                barWidth = 0;
+              }
+
+              return Stack(
+              children: [
+                Container(
+                  height: 20.0,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
+                Container(
+                  height: 20.0,
+                  width: barWidth,
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
+              ],
+            );
+            },
           )
         ],
       ),
