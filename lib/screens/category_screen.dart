@@ -53,7 +53,10 @@ class _CategoryScreenState extends State<CategoryScreen> {
               ),
               child: Center(
                 child: Text(
-                    '\$${amountLeft.toStringAsFixed(2)} / \$${widget.category.maxAmount}'),
+                  '\$${amountLeft.toStringAsFixed(2)} / \$${widget.category.maxAmount}',
+                  style: const TextStyle(
+                      fontSize: 20.0, fontWeight: FontWeight.w600),
+                ),
               ),
             ),
           ],
