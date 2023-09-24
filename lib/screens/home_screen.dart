@@ -1,5 +1,5 @@
 import 'package:budget_app/data/data.dart';
-//import 'package:budget_app/helpers/color_helper.dart';
+import 'package:budget_app/helpers/color_helper.dart';
 import 'package:budget_app/models/expense_model.dart';
 import 'package:budget_app/widgets/bar_chart.dart';
 import 'package:flutter/material.dart';
