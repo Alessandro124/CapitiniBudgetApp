@@ -14,6 +14,10 @@ class _HomeScreenState extends State<HomeScreen> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            expandedHeight: 100.0,
+            forceElevated: true,
+            //floating: true,
+            pinned: true,
             backgroundColor: Theme.of(context).primaryColor,
             leading: IconButton(
               icon: const Icon(Icons.settings),
@@ -31,6 +35,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 iconSize: 30.0,
               )
             ],
+          ),
+          SliverList(
+            delegate:
+                SliverChildBuilderDelegate((BuildContext context, int index) {
+              return Container(
+                margin: EdgeInsets.all(10.0),
+                height: 100.0,
+                color: Colors.red,
+              );
+            }, childCount: 10),
           ),
         ],
       ),
