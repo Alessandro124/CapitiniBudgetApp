@@ -4,9 +4,9 @@ This app is a perfect UI design which is made using dummy data classes to repres
 
 ## UI Design
 
-![Screenshot_1695639125](https://github.com/offfahad/budget-app-ui-flutter/assets/19569802/86525722-c7e6-438f-88ad-75dc5c416c87)
-![Screenshot_1695639129](https://github.com/offfahad/budget-app-ui-flutter/assets/19569802/910f417e-2caa-47d2-8d07-3f120a2685c8)
-![Screenshot_1695639135](https://github.com/offfahad/budget-app-ui-flutter/assets/19569802/8346bd06-bb72-4d82-bf13-65bdbb713248)
+![Screenshot_1695639125](https://github.com/offfahad/budget-app-ui-flutter/assets/19569802/8942a353-504c-497b-9b55-7801e6cf3313)
+![Screenshot_1695639129](https://github.com/offfahad/budget-app-ui-flutter/assets/19569802/c60549bc-f4ea-425b-b949-dc1719a36003)
+![Screenshot_1695639135](https://github.com/offfahad/budget-app-ui-flutter/assets/19569802/517fd19d-38e1-4837-81fa-1cb6d5b588bf)
 
 ## Pednding Section
 
