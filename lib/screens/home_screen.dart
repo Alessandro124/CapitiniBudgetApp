@@ -1,6 +1,5 @@
 import 'package:budget_app/data/data.dart';
 import 'package:budget_app/helpers/color_helper.dart';
-import 'package:budget_app/models/expense_model.dart';
 import 'package:budget_app/screens/category_screen.dart';
 import 'package:budget_app/widgets/bar_chart.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 Text(
-                  '\$${(category.maxAmount - totalAmountSpend).toStringAsFixed(2)} / \$${category.maxAmount.toStringAsFixed(2)}',
+                  '\€${(category.maxAmount - totalAmountSpend).toStringAsFixed(2)} / \€${category.maxAmount.toStringAsFixed(2)}',
                   style: const TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.w600,
@@ -117,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             flexibleSpace: const FlexibleSpaceBar(
               centerTitle: true,
-              title: Text('Simple Budget'),
+              title: Text('Budget'),
             ),
             actions: [
               IconButton(
@@ -147,9 +146,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 } else {
                   final Category category = categories[index - 1];
                   double totalAmountSpend = 0;
-                  category.expenses.forEach((Expense expenses) {
+                  for (var expenses in category.expenses) {
                     totalAmountSpend += expenses.cost;
-                  });
+                  }
                   return _buildCategory(category, totalAmountSpend);
                 }
               },

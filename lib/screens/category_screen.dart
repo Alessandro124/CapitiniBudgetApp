@@ -1,5 +1,4 @@
 import 'package:budget_app/helpers/color_helper.dart';
-import 'package:budget_app/models/expense_model.dart';
 import 'package:budget_app/widgets/radial_painter.dart';
 import 'package:flutter/material.dart';
 import 'package:budget_app/models/category_model.dart';
@@ -15,10 +14,10 @@ class CategoryScreen extends StatefulWidget {
 class _CategoryScreenState extends State<CategoryScreen> {
   _buildExpenses() {
     List<Widget> expensesList = [];
-    widget.category.expenses.forEach((Expense expense) {
+    for (var expense in widget.category.expenses) {
       expensesList.add(Container(
         alignment: Alignment.center,
-        margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 18.0),
+        margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 18.0),
         height: 80.0,
         width: double.infinity,
         decoration: BoxDecoration(
@@ -34,9 +33,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
         ),
         child: Padding(
           padding: const EdgeInsets.all(30.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Text(
               expense.name,
               style: const TextStyle(
@@ -45,7 +43,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
               ),
             ),
             Text(
-              '-\$${expense.cost.toStringAsFixed(2)}',
+              '-\€${expense.cost.toStringAsFixed(2)}',
               style: const TextStyle(
                 color: Colors.red,
                 fontSize: 20.0,
@@ -55,7 +53,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
           ]),
         ),
       ));
-    });
+    }
     return Column(
       children: expensesList,
     );
@@ -64,9 +62,9 @@ class _CategoryScreenState extends State<CategoryScreen> {
   @override
   Widget build(BuildContext context) {
     double totalAmountSpend = 0;
-    widget.category.expenses.forEach((Expense expense) {
+    for (var expense in widget.category.expenses) {
       totalAmountSpend += expense.cost;
-    });
+    }
     final double amountLeft = widget.category.maxAmount - totalAmountSpend;
     final double percent = amountLeft / widget.category.maxAmount;
 
@@ -109,7 +107,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                     width: 15.0),
                 child: Center(
                   child: Text(
-                    '\$${amountLeft.toStringAsFixed(2)} / \$${widget.category.maxAmount}',
+                    '\€${amountLeft.toStringAsFixed(2)} / \€${widget.category.maxAmount}',
                     style: const TextStyle(
                         fontSize: 20.0, fontWeight: FontWeight.w600),
                   ),

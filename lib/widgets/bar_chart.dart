@@ -5,25 +5,25 @@ class BarChart extends StatelessWidget {
 
   final List<double> expenses;
 
-
   @override
   Widget build(BuildContext context) {
-
     double mostExpensive = 0;
-    expenses.forEach((double price){
-      if(price > mostExpensive){
+    for (var price in expenses) {
+      if (price > mostExpensive) {
         mostExpensive = price;
       }
-    });
+    }
 
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: Column(
         children: [
           const Text(
-            'Weekly Speending',
+            'Spese Settimanali',
             style: TextStyle(
-                fontSize: 20.0, fontWeight: FontWeight.bold, letterSpacing: 1.2),
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1.2),
           ),
           const SizedBox(height: 5.0),
           Row(
@@ -57,13 +57,34 @@ class BarChart extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Bar(label: 'Su', amountSpent: expenses[0], mostExpensive: mostExpensive),
-              Bar(label: 'Mo', amountSpent: expenses[1], mostExpensive: mostExpensive),
-              Bar(label: 'Tu', amountSpent: expenses[2], mostExpensive: mostExpensive),
-              Bar(label: 'We', amountSpent: expenses[3], mostExpensive: mostExpensive),
-              Bar(label: 'Th', amountSpent: expenses[4], mostExpensive: mostExpensive),
-              Bar(label: 'Fr', amountSpent: expenses[5], mostExpensive: mostExpensive),
-              Bar(label: 'Sa', amountSpent: expenses[6], mostExpensive: mostExpensive),
+              Bar(
+                  label: 'Su',
+                  amountSpent: expenses[0],
+                  mostExpensive: mostExpensive),
+              Bar(
+                  label: 'Mo',
+                  amountSpent: expenses[1],
+                  mostExpensive: mostExpensive),
+              Bar(
+                  label: 'Tu',
+                  amountSpent: expenses[2],
+                  mostExpensive: mostExpensive),
+              Bar(
+                  label: 'We',
+                  amountSpent: expenses[3],
+                  mostExpensive: mostExpensive),
+              Bar(
+                  label: 'Th',
+                  amountSpent: expenses[4],
+                  mostExpensive: mostExpensive),
+              Bar(
+                  label: 'Fr',
+                  amountSpent: expenses[5],
+                  mostExpensive: mostExpensive),
+              Bar(
+                  label: 'Sa',
+                  amountSpent: expenses[6],
+                  mostExpensive: mostExpensive),
             ],
           ),
         ],
@@ -91,7 +112,7 @@ class Bar extends StatelessWidget {
     return Column(
       children: [
         Text(
-          '\$${amountSpent.toStringAsFixed(2)}',
+          '\€${amountSpent.toStringAsFixed(2)}',
           style: const TextStyle(fontWeight: FontWeight.w600),
         ),
         const SizedBox(
