@@ -37,4 +37,7 @@
       };
     };
   };
+  idx.hooks = {
+    onCreate = { command = "flutter pub get"; };
+  };
 }

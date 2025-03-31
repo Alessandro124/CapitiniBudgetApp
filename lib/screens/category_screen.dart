@@ -43,7 +43,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
               ),
             ),
             Text(
-              '-\€${expense.cost.toStringAsFixed(2)}',
+              '-€${expense.cost.toStringAsFixed(2)}',
               style: const TextStyle(
                 color: Colors.red,
                 fontSize: 20.0,
@@ -107,7 +107,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                     width: 15.0),
                 child: Center(
                   child: Text(
-                    '\€${amountLeft.toStringAsFixed(2)} / \€${widget.category.maxAmount}',
+                    '€${amountLeft.toStringAsFixed(2)} / €${widget.category.maxAmount}',
                     style: const TextStyle(
                         fontSize: 20.0, fontWeight: FontWeight.w600),
                   ),

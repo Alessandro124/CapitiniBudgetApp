@@ -3,6 +3,7 @@ import 'package:budget_app/helpers/color_helper.dart';
 import 'package:budget_app/screens/category_screen.dart';
 import 'package:budget_app/widgets/bar_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:budget_app/screens/addexpensepage.dart';
 import 'package:budget_app/models/category_model.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -51,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 Text(
-                  '\€${(category.maxAmount - totalAmountSpend).toStringAsFixed(2)} / \€${category.maxAmount.toStringAsFixed(2)}',
+                  '€${(category.maxAmount - totalAmountSpend).toStringAsFixed(2)} / €${category.maxAmount.toStringAsFixed(2)}',
                   style: const TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.w600,
@@ -118,18 +119,25 @@ class _HomeScreenState extends State<HomeScreen> {
               centerTitle: true,
               title: Text('Budget'),
             ),
-            actions: [
+            actions: <Widget>[
               IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.add),
-                iconSize: 30.0,
-              )
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AddExpensePage()),
+                  );
+                },
+                icon: const Icon(Icons.add_circle_outline),
+              ),
             ],
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 if (index == 0) {
+                  return SizedBox.shrink();
+                } else if (index == 1) {
                   return Container(
                     margin: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
                     decoration: BoxDecoration(
@@ -144,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: BarChart(expenses: weeklySpending),
                   );
                 } else {
-                  final Category category = categories[index - 1];
+                  final Category category = categories[index - 2];
                   double totalAmountSpend = 0;
                   for (var expenses in category.expenses) {
                     totalAmountSpend += expenses.cost;
@@ -152,7 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   return _buildCategory(category, totalAmountSpend);
                 }
               },
-              childCount: 1 + categories.length,
+              childCount: 2 + categories.length,
             ),
           ),
         ],

@@ -112,7 +112,7 @@ class Bar extends StatelessWidget {
     return Column(
       children: [
         Text(
-          '\€${amountSpent.toStringAsFixed(2)}',
+          '€${amountSpent.toStringAsFixed(2)}',
           style: const TextStyle(fontWeight: FontWeight.w600),
         ),
         const SizedBox(
